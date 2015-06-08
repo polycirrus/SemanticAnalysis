@@ -86,7 +86,7 @@ namespace Service
 
         private String[] GetWords()
         {
-            return Regex.Matches(this.Text, "[A-Za-zА-Яа-яЁё]+(-[a-zA-Zа-яА-ЯЁё]+)*").Cast<Match>().Select(match => match.Value).ToArray();
+            return Regex.Matches(this.Text, "[А-Яа-яЁё]+(-[а-яА-ЯЁё]+)*").Cast<Match>().Select(match => match.Value).ToArray();
         }
 
         private UniqueWord[] GetUniqueWords()
