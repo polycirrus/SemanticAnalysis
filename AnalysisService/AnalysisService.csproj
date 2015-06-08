@@ -7,14 +7,15 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1BF3E2C7-C4A5-44FB-B714-E54DF1363558}</ProjectGuid>
+    <ProjectGuid>{F43434EE-B7E6-4AE4-A599-627E2C18F9BE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Service</RootNamespace>
-    <AssemblyName>Service</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>AnalysisService</RootNamespace>
+    <AssemblyName>AnalysisService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -39,21 +40,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LemmaSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>LemmaSharp\LemmaSharp.dll</HintPath>
+    <Reference Include="LemmaSharp">
+      <HintPath>..\Service\LemmaSharp\LemmaSharp.dll</HintPath>
     </Reference>
-    <Reference Include="LemmaSharpPrebuilt, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>LemmaSharp\LemmaSharpPrebuilt.dll</HintPath>
+    <Reference Include="LemmaSharpPrebuilt">
+      <HintPath>..\Service\LemmaSharp\LemmaSharpPrebuilt.dll</HintPath>
     </Reference>
-    <Reference Include="LemmaSharpPrebuiltCompact, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>LemmaSharp\LemmaSharpPrebuiltCompact.dll</HintPath>
+    <Reference Include="LemmaSharpPrebuiltCompact">
+      <HintPath>..\Service\LemmaSharp\LemmaSharpPrebuiltCompact.dll</HintPath>
     </Reference>
-    <Reference Include="Lzma#, Version=4.12.3884.11200, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>LemmaSharp\Lzma#.dll</HintPath>
+    <Reference Include="Lzma#">
+      <HintPath>..\Service\LemmaSharp\Lzma#.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
@@ -75,22 +72,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LemmaSharp\LemmaSharp.dll" />
-    <Content Include="LemmaSharp\LemmaSharpPrebuilt.dll" />
-    <Content Include="LemmaSharp\LemmaSharpPrebuiltCompact.dll" />
-    <Content Include="LemmaSharp\Lzma#.dll" />
     <Content Include="SemanticAnalysisService.svc" />
-    <Content Include="stop.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="SemanticAnalyzer.cs" />
     <Compile Include="SemanticAnalysisService.svc.cs">
       <DependentUpon>SemanticAnalysisService.svc</DependentUpon>
@@ -102,11 +87,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\SA Service 1.pubxml" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <None Include="Properties\PublishProfiles\AS Service 1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -125,14 +106,15 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>63000</DevelopmentServerPort>
+          <DevelopmentServerPort>61432</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63000/</IISUrl>
+          <IISUrl>http://localhost:61432/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
-          <CustomServerUrl>http://vaio/SemanticAnalysis</CustomServerUrl>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

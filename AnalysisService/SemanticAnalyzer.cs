@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Configuration;
 
-namespace Service
+namespace AnalysisService
 {
     [Serializable()]
     public class UniqueWord
@@ -51,7 +51,7 @@ namespace Service
         public SemanticAnalyzer(String text)
         {
             this.Text = text;
-            this.stopDictionaryPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath.Trim() + Properties.Settings.Default.StopWordsDictionaryPath.Trim();
+            this.stopDictionaryPath = Properties.Settings.Default.StopWordsDictionaryPath;
             try
             {
                 this.semanticCoreSize = Properties.Settings.Default.SemanticCoreSize;

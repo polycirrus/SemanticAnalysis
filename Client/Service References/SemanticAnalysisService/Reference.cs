@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Client.ServiceReference1 {
+namespace Client.SemanticAnalysisService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ISemanticAnalysisService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SemanticAnalysisService.ISemanticAnalysisService")]
     public interface ISemanticAnalysisService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISemanticAnalysisService/Analyze", ReplyAction="http://tempuri.org/ISemanticAnalysisService/AnalyzeResponse")]
@@ -23,12 +23,12 @@ namespace Client.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISemanticAnalysisServiceChannel : Client.ServiceReference1.ISemanticAnalysisService, System.ServiceModel.IClientChannel {
+    public interface ISemanticAnalysisServiceChannel : Client.SemanticAnalysisService.ISemanticAnalysisService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SemanticAnalysisServiceClient : System.ServiceModel.ClientBase<Client.ServiceReference1.ISemanticAnalysisService>, Client.ServiceReference1.ISemanticAnalysisService {
+    public partial class SemanticAnalysisServiceClient : System.ServiceModel.ClientBase<Client.SemanticAnalysisService.ISemanticAnalysisService>, Client.SemanticAnalysisService.ISemanticAnalysisService {
         
         public SemanticAnalysisServiceClient() {
         }

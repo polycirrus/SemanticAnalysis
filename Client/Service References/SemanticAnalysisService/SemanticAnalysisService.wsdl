@@ -20,5 +20,21 @@
       <wsdl:output wsaw:Action="http://tempuri.org/ISemanticAnalysisService/AnalyzeResponse" message="tns:ISemanticAnalysisService_Analyze_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:service name="SemanticAnalysisService" />
+  <wsdl:binding name="BasicHttpBinding_ISemanticAnalysisService" type="tns:ISemanticAnalysisService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Analyze">
+      <soap:operation soapAction="http://tempuri.org/ISemanticAnalysisService/Analyze" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SemanticAnalysisService">
+    <wsdl:port name="BasicHttpBinding_ISemanticAnalysisService" binding="tns:BasicHttpBinding_ISemanticAnalysisService">
+      <soap:address location="http://vaio/SemanticAnalysis/SemanticAnalysisService.svc" />
+    </wsdl:port>
+  </wsdl:service>
 </wsdl:definitions>
