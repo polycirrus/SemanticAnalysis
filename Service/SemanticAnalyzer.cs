@@ -33,6 +33,7 @@ namespace Service
         private String stopDictionaryPath;
         private int semanticCoreSize;
         const int defaultSemanticCoreSize = 15;
+        private LemmaSharp.LemmatizerPrebuiltCompact lemmatizer;
 
         public readonly String Text;
 
@@ -43,16 +44,16 @@ namespace Service
         public UniqueWord[] SemanticCore { get; private set; }
         public UniqueWord[] StopWords { get; private set; }
         public double Water { get; private set; }
-        public int ClassicNausea { get; private set; }
-        public int AcademicNausea { get; private set; }
+        public double ClassicNausea { get; private set; }
+        public double AcademicNausea { get; private set; }
 
         public SemanticAnalyzer(String text)
         {
             this.Text = text;
-            this.stopDictionaryPath = ConfigurationManager.AppSettings["StopWordsDictionaryPath"];
+            this.stopDictionaryPath = Properties.Settings.Default.StopWordsDictionaryPath;
             try
             {
-                this.semanticCoreSize = Convert.ToInt32(ConfigurationManager.AppSettings["SemanticCoreSize"]);
+                this.semanticCoreSize = Properties.Settings.Default.SemanticCoreSize;
             }
             catch
             {
@@ -64,6 +65,9 @@ namespace Service
             this.CharacterCount = CountCharacters(false);
             this.CharacterCountNoWhitespaces = CountCharacters(true);
             this.Words = GetWords();
+            //check if text contains any words
+            if (Words.Length == 0)
+                throw new ArgumentException("Text contains no words.");
             this.UniqueWords = GetUniqueWords();
             this.SemanticCore = GetSemanticCore();
             this.StopWords = GetStopWords();
@@ -82,13 +86,13 @@ namespace Service
 
         private String[] GetWords()
         {
-            return Regex.Matches(this.Text, "[A-Za-zА-Яа-яё]+(-[a-zA-Zа-яА-Яё]+)*").Cast<Match>().Select(match => match.Value).ToArray();
+            return Regex.Matches(this.Text, "[A-Za-zА-Яа-яЁё]+(-[a-zA-Zа-яА-ЯЁё]+)*").Cast<Match>().Select(match => match.Value).ToArray();
         }
 
         private UniqueWord[] GetUniqueWords()
         {
             int i;
-            var lemmatizer = new LemmaSharp.LemmatizerPrebuiltCompact(LemmaSharp.LanguagePrebuilt.Russian);
+            lemmatizer = new LemmaSharp.LemmatizerPrebuiltCompact(LemmaSharp.LanguagePrebuilt.Russian);
             for (i = 0; i < Words.Length; i++)
             {
                 Words[i] = lemmatizer.Lemmatize(Words[i].ToLower());
@@ -145,6 +149,10 @@ namespace Service
         {
             var stopWords = new List<UniqueWord>();
             var stopWordsDictionary = File.ReadAllLines(stopDictionaryPath);
+            for (int i = 0; i < stopWordsDictionary.Length; i++)
+            {
+                stopWordsDictionary[i] = lemmatizer.Lemmatize(stopWordsDictionary[i]);
+            }
 
             foreach (UniqueWord uniqueWord in UniqueWords)
             {
@@ -194,16 +202,14 @@ namespace Service
             return (double)stopWords / (double)Words.Length;
         }
 
-        //WIP
-        private int CountClassicNausea()
+        private double CountClassicNausea()
         {
-            return 0;
+            return Math.Sqrt((double)SemanticCore[0].Count);
         }
 
-        //WIP
-        private int CountAcademicNausea()
+        private double CountAcademicNausea()
         {
-            return 0;
+            return SemanticCore[0].Count / (double)Words.Length;
         }
     }
 }
