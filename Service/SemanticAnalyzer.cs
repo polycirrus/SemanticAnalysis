@@ -9,6 +9,7 @@ using System.Configuration;
 
 namespace Service
 {
+    [Serializable()]
     public class UniqueWord
     {
         public String Word;

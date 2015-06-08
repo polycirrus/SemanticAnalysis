@@ -8,6 +8,7 @@ using System.Text;
 
 namespace Service
 {
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class SemanticAnalysisService : ISemanticAnalysisService
     {
         public TextAnalysisResult Analyze(String text)
