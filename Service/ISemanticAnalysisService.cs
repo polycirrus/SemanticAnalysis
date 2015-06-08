@@ -27,6 +27,7 @@ namespace Service
             this.Water = analyzer.Water;
             this.ClassicNausea = analyzer.ClassicNausea;
             this.AcademicNausea = analyzer.AcademicNausea;
+            this.StopWords = analyzer.StopWords;
         }
 
         [DataMember]

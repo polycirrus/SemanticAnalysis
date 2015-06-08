@@ -51,7 +51,14 @@ namespace Service
         public SemanticAnalyzer(String text)
         {
             this.Text = text;
-            this.stopDictionaryPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath.Trim() + Properties.Settings.Default.StopWordsDictionaryPath.Trim();
+            try
+            {
+                this.stopDictionaryPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath.Trim() + Properties.Settings.Default.StopWordsDictionaryPath.Trim();
+            }
+            catch
+            {
+                this.stopDictionaryPath = Properties.Settings.Default.StopWordsDictionaryPath;
+            }
             try
             {
                 this.semanticCoreSize = Properties.Settings.Default.SemanticCoreSize;
