@@ -39,6 +39,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.characterCountLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Word = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textInputGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -112,6 +115,7 @@
             this.analyzeButton.TabIndex = 1;
             this.analyzeButton.Text = "Анализировать";
             this.analyzeButton.UseVisualStyleBackColor = true;
+            this.analyzeButton.Click += new System.EventHandler(this.analyzeButton_Click);
             // 
             // groupBox1
             // 
@@ -145,10 +149,32 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Word,
+            this.Count,
+            this.Frequency});
             this.dataGridView1.Location = new System.Drawing.Point(6, 41);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(342, 150);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // Word
+            // 
+            this.Word.HeaderText = "Слово";
+            this.Word.Name = "Word";
+            this.Word.ReadOnly = true;
+            // 
+            // Count
+            // 
+            this.Count.HeaderText = "Количество";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            // 
+            // Frequency
+            // 
+            this.Frequency.HeaderText = "Частота";
+            this.Frequency.Name = "Frequency";
+            this.Frequency.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -185,6 +211,9 @@
         private System.Windows.Forms.Label characterCountLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Word;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Frequency;
 
     }
 }

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using System.Globalization;
+using Service;
 
 namespace Client
 {
@@ -15,6 +18,19 @@ namespace Client
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void analyzeButton_Click(object sender, EventArgs e)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+
+            var serviceClient = new ServiceReference1.SemanticAnalysisServiceClient();
+            var results = serviceClient.Analyze("kek");
+            foreach (UniqueWord word in results.UniqueWords)
+            {
+                dataGridView1.Rows.Add(word.Word, word.Count, word.Frequency);
+            }
         }
     }
 }

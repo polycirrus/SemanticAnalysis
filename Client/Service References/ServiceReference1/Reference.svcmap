@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d3d29f55-99fa-47b5-ae97-a04b2eb6c471" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://vaio/SemanticAnalysis/SemanticAnalysisService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SemanticAnalysisService.xsd" MetadataType="Schema" ID="b1724910-0099-4d0d-8dc9-b33b2fdcc4de" SourceId="1" SourceUrl="http://vaio/SemanticAnalysis/SemanticAnalysisService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SemanticAnalysisService.disco" MetadataType="Disco" ID="e3cceaf4-bb44-4a1e-b2cc-2f74d1a0856a" SourceId="1" SourceUrl="http://vaio/SemanticAnalysis/SemanticAnalysisService.svc?disco" />
+    <MetadataFile FileName="SemanticAnalysisService1.xsd" MetadataType="Schema" ID="9966c8ac-22ed-4fc6-b9e2-39939862d573" SourceId="1" SourceUrl="http://vaio/SemanticAnalysis/SemanticAnalysisService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SemanticAnalysisService2.xsd" MetadataType="Schema" ID="39812fad-fd85-4b96-8214-a4e4e35fe88a" SourceId="1" SourceUrl="http://vaio/SemanticAnalysis/SemanticAnalysisService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SemanticAnalysisService.wsdl" MetadataType="Wsdl" ID="88d479ef-6507-48c3-bb42-e3395ec066aa" SourceId="1" SourceUrl="http://vaio/SemanticAnalysis/SemanticAnalysisService.svc?wsdl" />
+    <MetadataFile FileName="SemanticAnalysisService3.xsd" MetadataType="Schema" ID="96818dd0-08b9-41ea-bc50-03bbd47c01f5" SourceId="1" SourceUrl="http://vaio/SemanticAnalysis/SemanticAnalysisService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
